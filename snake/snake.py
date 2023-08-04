@@ -13,15 +13,24 @@ class Snake:
         self.segments = []
         self.create_snake()
         self.head = self.segments[0]
+        self.speed = 0.1
+    def add_segment(self, position):
+        """increase snake size"""
+        new_segment = Turtle(shape="square")
+        new_segment.color("white")
+        new_segment.penup()
+        new_segment.goto(position)
+        self.segments.append(new_segment) 
 
     def create_snake(self):
         """creates the snake"""
         for position in STARTING_POSITIONS:
-            new_segment = Turtle(shape="square")
-            new_segment.color("white")
-            new_segment.penup()
-            new_segment.goto(position)
-            self.segments.append(new_segment)   
+            self.add_segment(position)
+
+    def extend(self):
+        """extends the snake"""
+        self.add_segment(self.segments[-1].position())
+
     
     def move(self):
         """Controls the movement of the snake"""
@@ -33,9 +42,11 @@ class Snake:
         
         self.head.forward(MOVE_DISTANCE)
 
+   
+        
+
     def up(self):
         """moves the snake up"""
-        print('here')
         if self.head.heading() != DOWN:
             self.head.setheading(UP)
 
