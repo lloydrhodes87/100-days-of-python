@@ -34,7 +34,7 @@ while game_is_on:
         food.refresh()
         score.increase_score()
         snake.extend()
-        snake.speed -= 0.01
+        # snake.speed -= 0.01
 
     if snake.head.xcor() > 290 or snake.head.xcor() < -280 or snake.head.ycor() > 280 or snake.head.ycor() < -280:
         game_is_on = False

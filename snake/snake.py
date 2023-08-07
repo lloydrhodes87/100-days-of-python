@@ -13,7 +13,7 @@ class Snake:
         self.segments = []
         self.create_snake()
         self.head = self.segments[0]
-        self.speed = 0.1
+        self.speed = 1
     def add_segment(self, position):
         """increase snake size"""
         new_segment = Turtle(shape="square")
